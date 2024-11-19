@@ -4,14 +4,14 @@ FROM node:14-alpine3.12
 WORKDIR /app
 
 # Sao chép file package.json và package-lock.json trước
-COPY package*.json ./
+COPY backend/package*.json ./
 
 # Cài đặt dependencies
 RUN npm install
 
 # Sao chép toàn bộ nội dung vào container
-COPY . .
+COPY backend ./
 
 EXPOSE 4000
 
-CMD ["npm","start"]
+CMD ["node","index.js"]
